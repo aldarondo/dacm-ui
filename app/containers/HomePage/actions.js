@@ -1,10 +1,16 @@
-import { CHANGE_VALUE, SAVE_FORM } from './constants';
+import { CHANGE_VALUE, CONTINUE_FORM, SAVE_FORM } from './constants';
 
 export function changeValue(attribute, value) {
   return {
     type: CHANGE_VALUE,
     attribute,
     value,
+  };
+}
+
+export function continueForm() {
+  return {
+    type: CONTINUE_FORM,
   };
 }
 

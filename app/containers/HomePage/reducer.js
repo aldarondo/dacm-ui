@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 
-import { CHANGE_VALUE, SAVE_FORM, STAGE_CREATE, STAGE_READ } from './constants';
+import { CHANGE_VALUE, CONTINUE_FORM, SAVE_FORM, STAGE_CREATE, STAGE_READ, STAGE_DONE } from './constants';
 
 const initialState = fromJS({
   contact: {
@@ -27,8 +27,10 @@ function homeReducer(state = initialState, action) {
       newState.contact[action.attribute] = action.value;
       return fromJS(newState);
     }
-    case SAVE_FORM:
+    case CONTINUE_FORM:
       return state.set('stage', STAGE_READ);
+    case SAVE_FORM:
+      return state.set('stage', STAGE_DONE);
     default:
       return state;
   }
